@@ -1,0 +1,13 @@
+.jekyll-cache/*
+.DS_Store
+_posts/.DS_Store
+node_modules/*
+_site/*
+_site/archive/index.html
+_site/feed.xml
+_site/index.html
+_site/shortcuts/index.html
+_site/sitemap.xml
+_site/tags/index.html
+.DS_Store
+.jekyll-cache/Jekyll/Cache/Jekyll--Cache/b7/9606fb3afea5bd1609ed40b622142f1c98125abcfe89a76a661b0e8e343910
