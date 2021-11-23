@@ -1,0 +1,27 @@
+{
+  "name": "ls",
+  "version": "1.0.0",
+  "description": "LOFFER是个可以帮助你get off from LOFTER的软件（我知道这个pun很烂）。",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/easonback26/ShadowArchive.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/easonback26/ShadowArchive/issues"
+  },
+  "homepage": "https://github.com/easonback26/ShadowArchive#readme",
+  "devDependencies": {
+    "gulp": "^4.0.2"
+  },
+  "dependencies": {
+    "crypto-js": "^4.0.0",
+    "gulp-util": "^3.0.8",
+    "marked": "^1.1.1"
+  }
+}

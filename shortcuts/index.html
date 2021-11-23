@@ -1,0 +1,37 @@
+---
+layout: page
+title: 常備
+permalink: /shortcuts/
+---
+
+{% if site.posts.size == 0 %}
+  <h2>No post found</h2>
+{% endif %}
+
+<p> Below are the documents I would use most frequently. </p>
+
+<div class="tags">
+
+
+{% for tag in site.tags %}
+<ul class="tag">
+{% if tag[0] == "Shortcuts" %}
+  {% for post in tag[1] %}
+    {% if post.title != null %}
+      <li>
+        {% if post.link %}
+          <a href="{{ post.link }}">
+        {% else %}
+          <a href="{{ site.baseurl }}{{ post.url }}">
+        {% endif %}
+            {{ post.title }}
+          </a>
+          <time>{{ post.date | date: "%Y-%m-%d" }}</time>
+      </li>
+    {% endif %}
+  {% endfor %}
+{% endif %}
+</ul>
+{% endfor %}
+
+</div>

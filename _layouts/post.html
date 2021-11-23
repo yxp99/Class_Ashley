@@ -1,0 +1,58 @@
+---
+layout: default
+support: [jquery, gallery]
+---
+
+<article class="posts">
+  <h1>{{ page.title }}</h1>
+
+  <div clsss="meta">
+    <span class="author">
+      {{ page.author }}
+    </span>
+
+    <span class="date">
+      {{ page.date | date: "%Y-%m-%d" }}
+    </span>
+
+    <ul class="tag">
+      {% for tag in page.tags %}
+      <li>
+        <a href="{{ site.url }}{{ site.baseurl }}/tags#{{ tag }}">
+          {{ tag }}
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div class="entry">
+    {{ content }}
+  </div>
+
+
+  <!-- 现在不用disqus评论了, 想用可以加上{% include disqus.html %} 评论区只有最上面comment true的时候才能用-->
+  {% include gitalk.html %}
+</article>
+
+<div class="pagination">
+  {% if page.previous.url %}
+    <span class="prev" >
+      <a href="{{ site.url }}{{ site.baseurl }}{{ page.previous.url }}">
+        ← 前に
+      </a>
+    </span>
+  {% endif %}
+  {% if page.next.url %}
+    <span class="next" >
+      <a href="{{ site.url }}{{ site.baseurl }}{{ page.next.url }}">
+        次に →
+      </a>
+    </span>
+  {% endif %}
+</div>
+
+{% include open-embed.html %}
+
+
+
