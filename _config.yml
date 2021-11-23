@@ -24,6 +24,8 @@ favicon: https://raw.githubusercontent.com/FromEndWorld/endworld/master/images/l
 navigation:
   - name: ホーム
     url: /
+  - name: 関連
+    url: /about
   - name: 常備
     url: /shortcuts
   - name: アーカイブ
