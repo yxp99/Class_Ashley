@@ -8,7 +8,7 @@ url:
 # 添加你的博客的二级域名，一般来说是你的repository名
 # 如果你的博客的URL是：(http://yourusername.github.io/repository-name)
 # 那么就写成 "/repository-name"
-baseurl: /Class_2021-11-21
+baseurl: /Class_Ashley
 
 
 #
