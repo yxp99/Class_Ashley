@@ -23,3 +23,8 @@ _site/shortcuts/index.html
 _site/sitemap.xml
 _site/tags/index.html
 .DS_Store
+.DS_Store
+_site/feed.xml
+.DS_Store
+_posts/.DS_Store
+.DS_Store

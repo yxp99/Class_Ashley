@@ -537,8 +537,13 @@ when K=2 minus when K=1 is 4 subarrays
 ### 什么时候用
 
 - 基本上是Array, 可以说SlidingWindow一定是array.  然后twoPointer不一定. 
-- 不能存在求和关系. 
+- 不能存在区间内的求和关系. 
 - 一段区间之内, 产生连续关系的时候, 使用SlidingWindow
+
+### Sliding Window
+
+- **等于 Two Pointer + 一段中间数据的存储**.  存储方式通常有 HashSet, HashMap 或者 Deque. 
+- 如果不需要存储的情况是纯two pointer, Deque 和 两个index two pointer都可以做. 首选two pointers. 
 
 ### 边界条件
 
@@ -549,12 +554,17 @@ when K=2 minus when K=1 is 4 subarrays
 ### 技巧
 
 - HashMap常用, 记录 freq, 记录 index
+- Deque 记录 滑动窗口内的元素
+
+### 难点
+
+- 其实SlidingWindow/TwoPointers的难点并不在于解题技巧的本身. 而在于如何处理和存储区间内的数据, 而这种处理是因题而异的. 
 
 
 ## 作业
 
 - **3**, 11, 167, 15, **438**, 581, 26, 42(难), 763
-- 876, 19, **239**, 992. 239题可以自己写一下指针的解法版本. 
+- 876, 19, **239**, 992. 239题没有指针解法版本. 
 - **215** QuickSelect 重要. 
 
 ## 其他
