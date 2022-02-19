@@ -35,6 +35,40 @@ Backtrack的核心是三道题. 这三道题覆盖了很多其他题目.
 
 ## 栗子
 
+### 39 Combination Sum
+
+```java
+class Solution {
+    List<List<Integer>> output = new LinkedList<>();
+    public List<List<Integer>> combinationSum(int[] list, int target){
+        Arrays.sort(list);
+        dfs(list, target, 0, new LinkedList<>(), 0);
+        return output;
+    }
+
+    private void dfs(int[] list, int target, int start, LinkedList<Integer> numList , int sum){
+        
+            if(sum == target){
+                output.add(new LinkedList<>(numList));
+              return;
+            }
+
+          for(int i=start; i<list.length; i++){    
+            sum += list[i];
+            if(sum>target)
+                break;
+              
+             numList.addLast(list[i]);
+            dfs(list, target, start++, numList, sum);
+            sum = sum - list[i];
+            numList.removeLast();
+          }
+
+    }
+    
+}
+```
+
 ### 78 Subsets
 
 ```java
