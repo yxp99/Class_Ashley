@@ -172,7 +172,7 @@ class Solution {
 }
 ```
 
-### 46
+### 46 permutations
 
 - Set 解法
 
@@ -247,6 +247,8 @@ class Solution {
 
 ## 47 Permutations II
 
+- 推荐记, 此解法也可以给46题用. 
+
 ```java
 class Solution {
     List<List<Integer>> output = new ArrayList<>();
@@ -293,13 +295,44 @@ class Solution {
 }
 ```
 
+- python 用 counter 更简洁. 来自官方答案
+
+```python
+class Solution:
+    def permuteUnique(self, nums: List[int]) -> List[List[int]]:
+        results = []
+        def backtrack(comb, counter):
+            if len(comb) == len(nums):
+                # make a deep copy of the resulting permutation,
+                # since the permutation would be backtracked later.
+                results.append(list(comb))
+                return
+
+            for num in counter:
+                if counter[num] > 0:
+                    # add this number into the current combination
+                    comb.append(num)
+                    counter[num] -= 1
+                    # continue the exploration
+                    backtrack(comb, counter)
+                    # revert the choice for the next exploration
+                    comb.pop()
+                    counter[num] += 1
+
+        backtrack([], Counter(nums))
+
+        return results
+```
+
 ## 技巧总结
 
 - Permutation or Combination
 - clone
 - hashmap technique. 
 
-### start++
+### start++ OR i 
+
+目前所知能用start ++ 的都能用i, 推荐用 i. 
 
 start++可以重复使用元素, ++start不可以.  会重复使用后面的元素, 但不会往前走, 例如不会出现2,1的情况. 
 
@@ -359,7 +392,10 @@ i+1 在正常状态跟上面的++start是一样的. 如下. 但i+1的用途是�
 
 ### start+1
 
-这个很少见, 目前只见过46题的swap解法和526题在使用. 没见过第二道. 就不总结了. 
+这个很少见, 目前只见过两类:
+
+- 46题的swap解法和526题在使用. 这个swap解法可以不会. 
+- 17题的分组排列
 
 
 ## Complexity Analysis
@@ -402,12 +438,13 @@ i+1 在正常状态跟上面的++start是一样的. 如下. 但i+1的用途是�
 
 应用题: 
 
-- 1152
+- 1152 亚麻高频 建议看
 - 526 Beautiful Arrangement
-- 126
+- 126 Word Ladder II  (难, 但是道好题, 有时间值得一看)
 
 ## 总结
 
 这一块是重点, 需要熟练掌握. 纯粹的backtrack由于算力过大其实不常考. 常见的类型是把backtrack融合在题目之中,也就是应用题, 所以一般都不是太难. 
 
 建议第一轮可以把题号上的非难题都刷一遍, 之后只刷三道核心, 三道核心刷熟刷透即可, 这一块没必要大量做题, 也没有必要刷太难的题目. 
+¸¸¸¸¸¸¸¸¸¸
