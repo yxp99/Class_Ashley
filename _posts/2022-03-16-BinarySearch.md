@@ -42,14 +42,23 @@ while (left < right) {
 	  // 这样取值的优势是防止 right or left = Integer.MAX_VALUE, 这样可以防止integer overflow. 
      int m = left + (right - left)/2  
      if(nums[m] < target) {
-    	Left = m + 1  
+    	Left = m + 1;
     } else {
-	Right = m 
+	Right = m;
    }
 }
 ```
 
+### lower bound & upper bound
+
+- [Guide](https://www.evernote.com/shard/s573/sh/19cf5eb7-83a7-4193-8f9e-b59f729b2255/6088966f5ea5198ba0ebd13f8f8078bc) from shawynLyn
+
+栗子: [34. Find First and Last Position of Element in Sorted Array](https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/)
+
+
 Binary的难点在于边界判断, 对于边界判断, 就刷1095题, 一道题基本涵盖了所以可能的binary search边界处理. 对于理解bianry和divide&conquer都大有帮助. 
+
+
 
 ## Search in sorted array/matrix
 
