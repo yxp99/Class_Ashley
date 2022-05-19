@@ -195,6 +195,37 @@ class Node{
 
 - **美国常考**
 
+### LRU变体
+
+LRU的关键在于 DLL, 而DLL的关键在于用hashmap存储node, 然后直接把node拿出来进行移除. 
+
+LRU是有变体的, 不要死板, 2022年初亚麻就有一道.  我在transfer的时候被面了, 当时并没有想出LRUde解法. 需要注意. 
+
+Millions of customers visit the Amazon websites. For a marketing campaign it is required to be able to:
+
+1. Keep record of the number of times a given customer has visited the site
+2. Most importantly, Marketing wants to know the first ONE TIME VISITOR (the first customer to visit the site only once). 
+3. For customers = B, D, E, A, D, ,C, B, ... Result = E .
+
+
+Solution:
+
+maintain double-linked list to hold valid customers (new customers added to tail)
+
+keep hashmap <customer, node pointer> to hold valid customer pointers
+
+maintain a set of invalid customers
+
+for each customer:
+
+if he's in invalid customers, skip
+if hes not in invalid, but in hashmap, remove him from hashmap, add to invalid, and unlink the node by using the pointer stored in the map
+if hes not invalid, and not in hashmap, he's a new customer. add him to the tail of the linked list.
+the result is the head of the linkedlist.
+
+O(1) for all operations
+total runtime O(n), after processing each customer with O(1)
+
 ## 总结
 
 - 遍历链表的时候，新创建一个头节点，以方便返回. 链表一般要开一个新节点以便回归头节点
