@@ -30,7 +30,33 @@ support: [jquery, gallery]
     {{ content }}
   </div>
 
-
+  <script>
+    // assets/js/post.js
+    var codeBlocks = document.querySelectorAll('pre.highlight');
+  
+    codeBlocks.forEach(function (codeBlock) {
+      var copyButton = document.createElement('button');
+      copyButton.className = 'copy';
+      copyButton.type = 'button';
+      copyButton.ariaLabel = 'Copy code to clipboard';
+      copyButton.innerText = 'Copy';
+  
+      codeBlock.append(copyButton);
+  
+      copyButton.addEventListener('click', function () {
+        var code = codeBlock.querySelector('code').innerText.trim();
+        window.navigator.clipboard.writeText(code);
+  
+        copyButton.innerText = 'Copied';
+        var fourSeconds = 4000;
+  
+        setTimeout(function () {
+          copyButton.innerText = 'Copy';
+        }, fourSeconds);
+      });
+    });
+    </script>
+    
   <!-- 现在不用disqus评论了, 想用可以加上{% include disqus.html %} 评论区只有最上面comment true的时候才能用-->
   {% include gitalk.html %}
 </article>
